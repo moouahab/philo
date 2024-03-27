@@ -12,3 +12,17 @@ La simulation du Dîner des Philosophes est un projet visant à modéliser de ma
  -   Synchronisation et communication entre threads : Apprendre à synchroniser et à communiquer entre les threads pour coordonner les activités des philosophes, en utilisant des mécanismes tels que les mutex et les variables conditionnelles.
 
  -   Optimisation des performances et de la fiabilité : Optimiser les performances et la robustesse du programme pour une simulation efficace et fiable du dîner des philosophes dans divers scénarios, tout en maintenant une approche asynchrone et sans blocage grâce à l'utilisation de threads.
+#### Function Autoriser 
+
+
+| Fonction              | Description                                                                                                           | Valeur de Retour |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------|------------------|
+| `usleep`              | Suspend l'exécution du programme pendant un certain nombre de microsecondes.                                          | 0 si réussi, -1 en cas d'erreur |
+| `gettimeofday`        | Récupère le temps écoulé depuis une date de référence (epoch) sous forme de struct timeval.                          | 0 si réussi, -1 en cas d'erreur |
+| `pthread_create`      | Crée un nouveau thread qui exécute une fonction spécifiée.                                                            | 0 si réussi, code d'erreur POSIX en cas d'échec |
+| `pthread_detach`      | Détache un thread, permettant au système d'exploitation de récupérer automatiquement les ressources associées à ce thread une fois qu'il a terminé son exécution. | 0 si réussi, code d'erreur POSIX en cas d'échec |
+| `pthread_join`        | Attend la fin d'exécution d'un thread spécifié et récupère la valeur de retour de ce thread.                           | 0 si réussi, code d'erreur POSIX en cas d'échec |
+| `pthread_mutex_init`  | Initialise un mutex, un objet de synchronisation utilisé pour protéger les sections critiques du code contre l'accès simultané par plusieurs threads. | 0 si réussi, code d'erreur POSIX en cas d'échec |
+| `pthread_mutex_destroy` | Détruit un mutex, libérant les ressources associées.                                                                 | 0 si réussi, code d'erreur POSIX en cas d'échec |
+| `pthread_mutex_lock`   | Bloque le mutex, permettant à un thread de sécuriser l'accès à une section critique du code.                        | 0 si réussi, code d'erreur POSIX en cas d'échec |
+| `pthread_mutex_unlock` | Débloque le mutex, permettant à d'autres threads de sécuriser l'accès à la section critique du code une fois qu'un thread a terminé son travail. | 0 si réussi, code d'erreur POSIX en cas d'échec |

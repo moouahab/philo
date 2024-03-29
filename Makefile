@@ -6,7 +6,7 @@
 #    By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 17:44:09 by moouahab          #+#    #+#              #
-#    Updated: 2024/03/28 18:07:44 by moouahab         ###   ########.fr        #
+#    Updated: 2024/03/29 22:54:34 by moouahab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,12 @@
 
 # Source files
 SRCS = srcs/main.c function/error/msg_error.c function/parse/check_int.c function/parse/utils_parse.c
+SRCS += function/parse/get_time.c function/parse/birth_of_philosopher.c
 
 # Object files
 OBJS = ${SRCS:%.c=objs/%.o}
+
+INC_PATH = ./include/
 
 # Executable name
 NAME = philosophers
@@ -25,7 +28,7 @@ NAME = philosophers
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -Werror -Wextra -I./ -O2
+CFLAGS = -Wall -Werror -Wextra  -g3 -MMD -I$(INC_PATH) -O2
 
 # Linker flags
 LDFLAGS = -lm

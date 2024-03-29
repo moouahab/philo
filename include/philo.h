@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 20:34:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/28 18:34:05 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/29 22:53:45 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,27 @@
 
 typedef struct s_life
 {
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				time_to_think;
+	int				eat_count;
+	long int		time_to_die;
+	long int		time_to_eat;
+	long int		time_to_thinking;
+	long int		time_to_sleep;
 }					t_life;
+
+typedef struct s_fork
+{
+	bool			right;
+	bool			left;
+}					t_fork;
 
 typedef struct s_philo
 {
+	int				id;
 	bool			dead;
 	bool			sleep;
 	bool			eating;
 	bool			thinking;
-	bool			fork_rigth;
-	bool			fork_left;
+	t_fork			forks;
 	t_life			life;
 	pthread_t		philo;
 	pthread_mutex_t	mutex;
@@ -47,12 +54,22 @@ typedef struct s_table
 {
 	int				place;
 	t_philo			*head;
-    t_philo         *tail;
+	t_philo			*tail;
 
 }					t_table;
 
 // parsing functions
 bool				check_int_content(char **av);
-unsigned int		atomic(char const *str);
+long int			atoli(char const *str);
+void				print_life(t_life *life);
+
+// destinee function
+t_philo				*birth_of_philosophers(int ac, char **data);
+t_life				destinte_of_philo(int ac, char **str);
+void				free_philo(t_philo *philo);
+
+// msg_error function
+bool				msg_is_note_int(t_table *table);
+bool				msg_error_argument(t_table *table);
 
 #endif

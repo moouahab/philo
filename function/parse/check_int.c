@@ -6,11 +6,11 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:28:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/28 19:38:43 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 00:22:56 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/philo.h"
+#include "philo.h"
 
 bool is_digit(char c)
 {
@@ -18,9 +18,6 @@ bool is_digit(char c)
 		return (true);
 	return(false);
 }
-
-// lim base a 60
-
 
 /**
  * check_int_content :
@@ -56,39 +53,46 @@ bool	check_overflower(char	**av)
 	int	i;
 
 	i = 2;
-    if (atomic(av[1]) > 200)
+    if (atoli(av[1]) > 200)
     {
-        return msg_not_args_valide(atomic(av[1]));
+        return msg_not_args_valide(atoli(av[1]));
     }
     while (av[i])
 	{
-		if ((atomic(av[i]) < 60 || atomic(av[i]) > INT_MAX) && i < 5)
-			return msg_not_args_valide(atomic(av[i]));
+		if ((atoli(av[i]) < 60 || atoli(av[i]) > INT_MAX) && i < 5)
+			return msg_not_args_valide(atoli(av[i]));
 		i++;
 	}
 	return (true);
 }
 
-int main(int argc, char const *av[])
+
+
+int main(int ac, char const *av[])
 {
     t_table table;
     
-	if (argc == 6 && check_int_content((char **)av))
+	if ((ac <= 6 && ac >= 5)  && check_int_content((char **)av))
 	{
 		if (!check_overflower((char **)av))
             return (false);
         else
         {
-            table.place = atomic(av[1]);
-            printf("le nombre de place a la table des philosphe : %d\n", table.place);
+            table.place = atoli(av[1]);
+            table.head = birth_of_philosophers(ac, (char **)av);
+			if (table.head == NULL)
+			    return (false);
+            print_life(&table.head->life);
+			free_philo(table.head);
         }
 	}
 	else
 	{
-		if (argc != 6)
-			return  (msg_error_argument());
 		if (!check_int_content((char **)av))
-			return (msg_is_note_int());
+			return (msg_is_note_int(&table));
+		if (ac < 5 || ac > 6)
+			return  (msg_error_argument(&table));
 	}
+    // free_philo(table.head);
 	return 0;
 }

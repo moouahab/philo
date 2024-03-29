@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:41:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/28 17:18:06 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/29 21:59:14 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include "philo.h"
 
-bool	msg_is_note_int(void);
-bool	msg_error_argument(void);
 bool	msg_not_args_valide(unsigned int    n);
+void	*msg_allocation(char *str);
 
 #endif

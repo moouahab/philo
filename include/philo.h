@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 20:34:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/29 22:53:45 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 01:26:16 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,12 @@ bool				check_int_content(char **av);
 long int			atoli(char const *str);
 void				print_life(t_life *life);
 
+void				chack_id(t_philo *philo);
+
 // destinee function
 t_philo				*birth_of_philosophers(int ac, char **data);
 t_life				destinte_of_philo(int ac, char **str);
 void				free_philo(t_philo *philo);
 
-// msg_error function
-bool				msg_is_note_int(t_table *table);
-bool				msg_error_argument(t_table *table);
 
 #endif

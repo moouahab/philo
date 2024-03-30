@@ -6,13 +6,13 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:34:00 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/29 23:20:11 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 01:21:34 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	msg_error_argument(t_table *table)
+bool	msg_error_argument(void)
 {
 	printf("\n---------------------------------------------------------\n\
 -  les argument rentre sont faut:\n\n\
@@ -22,16 +22,14 @@ bool	msg_error_argument(t_table *table)
 -  \033[36mtime_to_sleep\033[0m\n\
 -  \033[36mnumber_of_times_each_philosopher_must_eat (optional)\033[0m\n\
 ---------------------------------------------------------\n\n");
-    free_philo(table->head);
 	return (false);
 }
 
-bool	msg_is_note_int(t_table *table)
+bool	msg_is_note_int(void)
 {
 	printf("\n----------------------------------------------\n\
  -  \033[36mrentre des unsigned int en arg\033[0m\n\
 ----------------------------------------------\n\n");
-    free_philo(table->head);
     return (false);
 }
 

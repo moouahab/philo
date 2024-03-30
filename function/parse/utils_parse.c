@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:10:46 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/29 06:04:37 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 01:25:10 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ long int	atoli(char const *str)
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			return (msg_is_note_int(NULL));
+			return (msg_is_note_int());
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -51,4 +51,13 @@ la destin du philospher :\n\n\
 -   combien repas doit-il manger :\n\n\
 \033[30m-   number_of_times_each_philosopher_must_eat =\033[0m %d\n\
 -----------------------------------------\n\n", life->eat_count);
+}
+
+void	chack_id(t_philo *philo)
+{
+	while (philo)
+	{
+		printf("%d\n", philo->id);
+		philo = philo->next;
+	}
 }

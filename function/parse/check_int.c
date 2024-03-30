@@ -6,29 +6,29 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:28:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 01:14:04 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 01:27:41 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool is_digit(char c)
+bool	is_digit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (true);
-	return(false);
+	return (false);
 }
 
 /**
  * check_int_content :
- * 
- * Cette fonction parcourt chaque caractère d'une chaîne de 
+ *
+ * Cette fonction parcourt chaque caractère d'une chaîne de
  * caractères située dans un tableau de tableaux et vérifie
  * s'il ne contient que des caractères numériques.
- * 
-*/
+ *
+ */
 
-bool	check_int_content(char	**av)
+bool	check_int_content(char **av)
 {
 	int	i;
 	int	j;
@@ -48,59 +48,47 @@ bool	check_int_content(char	**av)
 	return (true);
 }
 
-bool	check_overflower(char	**av)
+bool	check_overflower(char **av)
 {
 	int	i;
 
 	i = 2;
-    if (atoli(av[1]) > 200)
-    {
-        return msg_not_args_valide(atoli(av[1]));
-    }
-    while (av[i])
+	if (atoli(av[1]) > 200)
+	{
+		return (msg_not_args_valide(atoli(av[1])));
+	}
+	while (av[i])
 	{
 		if ((atoli(av[i]) < 60 || atoli(av[i]) > INT_MAX) && i < 5)
-			return msg_not_args_valide(atoli(av[i]));
+			return (msg_not_args_valide(atoli(av[i])));
 		i++;
 	}
 	return (true);
 }
 
-void	chack_id(t_philo *philo)
+int	main(int ac, char const *av[])
 {
-	while (philo)
-	{
-		printf("%d\n", philo->id);
-        philo = philo->next;
-	}
-}
+	t_table	table;
 
-
-int main(int ac, char const *av[])
-{
-    t_table table;
-    
-	if ((ac <= 6 && ac >= 5)  && check_int_content((char **)av))
+	if ((ac <= 6 && ac >= 5) && check_int_content((char **)av))
 	{
 		if (!check_overflower((char **)av))
-            return (false);
-        else
-        {
-            table.place = atoli(av[1]);
-            table.head = birth_of_philosophers(ac, (char **)av);
+			return (false);
+		else
+		{
+			table.place = atoli(av[1]);
+			table.head = birth_of_philosophers(ac, (char **)av);
 			if (table.head == NULL)
-			    return (false);
-			chack_id(table.head);
-            print_life(&table.head->life);
+				return (false);
 			free_philo(table.head);
-        }
+		}
 	}
 	else
 	{
 		if (!check_int_content((char **)av))
-			return (msg_is_note_int(&table));
+			return (msg_is_note_int());
 		if (ac < 5 || ac > 6)
-			return  (msg_error_argument(&table));
+			return (msg_error_argument());
 	}
-	return 0;
+	return (0);
 }

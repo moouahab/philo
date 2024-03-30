@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:10:46 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 01:25:10 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 09:28:56 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,13 @@ la destin du philospher :\n\n\
 -----------------------------------------\n\n", life->eat_count);
 }
 
-void	chack_id(t_philo *philo)
+void	print_philo(t_philo *philo)
 {
 	while (philo)
 	{
-		printf("%d\n", philo->id);
+		printf("\n----------------------------------------\n\
+\033[32m-  je suis le philosopher numero\033[0m %d\n\
+-----------------------------------------\n\n", philo->id);
 		philo = philo->next;
 	}
 }

@@ -6,12 +6,11 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:34:04 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/29 21:42:23 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 15:23:13 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 /**
  * int rest_time(long  int rest_time)
@@ -41,20 +40,20 @@ long	rest_time(long int rest_time)
 	return (elapsed + margine);
 }
 
-void    storie_philo(long int   time, int  philosophical, char  *etat)
+void	storie_philo(long int time, int philosophical, char *etat)
 {
-    printf("%ld %d %s\n", time, philosophical, etat);
+	printf("%ld %d %s\n", time, philosophical, etat);
 }
 
-t_life    destinte_of_philo(int ac, char **str)
+t_life	destinte_of_philo(int ac, char **str)
 {
-    t_life life;
-    
+	t_life	life;
+
 	life.eat_count = 0;
-    life.time_to_die = atoli(str[2]);
-    life.time_to_eat = atoli(str[3]);
-    life.time_to_sleep = atoli(str[4]);
+	life.time_to_die = atoli(str[2]);
+	life.time_to_eat = atoli(str[3]);
+	life.time_to_sleep = atoli(str[4]);
 	if (ac == 6)
 		life.eat_count = atoli(str[5]);
-    return (life);
+	return (life);
 }

@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 21:48:07 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 00:53:48 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:39:49 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ t_fork	init_fork(void)
 	return (fork);
 }
 
-void	etap_init(t_philo **new_philo)
+void	etap_init(t_philo **new_philo, int ac, char **data, int id)
 {
+	(*new_philo)->id = id;
 	(*new_philo)->forks = init_fork();
 	(*new_philo)->dead = false;
 	(*new_philo)->eating = false;
 	(*new_philo)->sleep = false;
 	(*new_philo)->thinking = false;
+    (*new_philo)->life = destinte_of_philo(ac, data);
 }
 
 void	free_philo(t_philo *philo)
@@ -59,9 +61,9 @@ t_philo	*birth_of_philosophers(int ac, char **data)
 		new_philo = (t_philo *)malloc(sizeof(t_philo));
 		if (!new_philo)
 			return (t_philo *)(msg_allocation("new_philo"));
-		new_philo->id = i + 1;
-		new_philo->life = destinte_of_philo(ac, data);
-		etap_init(&new_philo);
+		etap_init(&new_philo, ac, data, i + 1);
+        if (pthread_mutex_init(&new_philo->mutex, NULL) != 0)
+            return NULL;
 		new_philo->next = NULL;
 		if (i == 0)
 			philo = new_philo;
@@ -72,3 +74,5 @@ t_philo	*birth_of_philosophers(int ac, char **data)
 	}
 	return (philo);
 }
+
+

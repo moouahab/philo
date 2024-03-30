@@ -6,7 +6,7 @@
 #    By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 17:44:09 by moouahab          #+#    #+#              #
-#    Updated: 2024/03/29 22:54:34 by moouahab         ###   ########.fr        #
+#    Updated: 2024/03/30 15:55:25 by moouahab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 
 # Source files
 SRCS = srcs/main.c function/error/msg_error.c function/parse/check_int.c function/parse/utils_parse.c
-SRCS += function/parse/get_time.c function/parse/birth_of_philosopher.c
+SRCS += function/parse/get_time.c function/parse/birth_of_philosopher.c function/error/msg_thread.c
+SRCS += function/config/*.c
 
 # Object files
 OBJS = ${SRCS:%.c=objs/%.o}

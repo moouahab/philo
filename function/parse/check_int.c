@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:28:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 01:27:41 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 10:31:44 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,18 @@ bool	check_overflower(char **av)
 	return (true);
 }
 
-int	main(int ac, char const *av[])
+int	parsin_philo(int ac, char const *av[], t_table *table)
 {
-	t_table	table;
-
 	if ((ac <= 6 && ac >= 5) && check_int_content((char **)av))
 	{
 		if (!check_overflower((char **)av))
 			return (false);
 		else
 		{
-			table.place = atoli(av[1]);
-			table.head = birth_of_philosophers(ac, (char **)av);
-			if (table.head == NULL)
+			table->place = atoli(av[1]);
+			table->head = birth_of_philosophers(ac, (char **)av);
+			if (table->head == NULL)
 				return (false);
-			free_philo(table.head);
 		}
 	}
 	else
@@ -90,5 +87,5 @@ int	main(int ac, char const *av[])
 		if (ac < 5 || ac > 6)
 			return (msg_error_argument());
 	}
-	return (0);
+	return (true);
 }

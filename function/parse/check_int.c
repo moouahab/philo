@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:28:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 00:22:56 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/30 01:14:04 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ bool	check_overflower(char	**av)
 	return (true);
 }
 
+void	chack_id(t_philo *philo)
+{
+	while (philo)
+	{
+		printf("%d\n", philo->id);
+        philo = philo->next;
+	}
+}
 
 
 int main(int ac, char const *av[])
@@ -82,6 +90,7 @@ int main(int ac, char const *av[])
             table.head = birth_of_philosophers(ac, (char **)av);
 			if (table.head == NULL)
 			    return (false);
+			chack_id(table.head);
             print_life(&table.head->life);
 			free_philo(table.head);
         }
@@ -93,6 +102,5 @@ int main(int ac, char const *av[])
 		if (ac < 5 || ac > 6)
 			return  (msg_error_argument(&table));
 	}
-    // free_philo(table.head);
 	return 0;
 }

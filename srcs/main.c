@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:00:08 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 15:53:13 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:56:58 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,21 @@ int	main(int argc, char const *argv[])
 
 	if (parsin_philo(argc, argv, &table))
 	{
-		if (!lancement_simulation(&table))
-		{
-			free_philo(table.head);
-			return (EXIT_FAILURE);
-		}
-		print_philo(table.head);
+        // if (table.head->life.eat_count)
+        // {
+		//     if (!lancement_fini(&table))
+		//     {
+		// 	    free_philo(table.head);
+		// 	    return (EXIT_FAILURE);
+		//     }
+        // }
+        // else
+        //     if (!lancement_philosophal(&table))
+		//     {
+		// 	    free_philo(table.head);
+		// 	    return (EXIT_FAILURE);
+		//     }
+		my_create_thread(table.head, test_function);
 		free_philo(table.head);
 	}
 	return (0);

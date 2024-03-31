@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 20:34:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 15:54:38 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:56:05 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_life
 
 typedef struct s_fork
 {
-	bool			right;
-	bool			left;
+	int				id;
+	pthread_mutex_t	fork_mutex;
 }					t_fork;
 
 typedef struct s_philo
@@ -42,10 +42,10 @@ typedef struct s_philo
 	bool			sleep;
 	bool			eating;
 	bool			thinking;
-	t_fork			forks;
+	t_fork			forks_r;
+	t_fork			forks_l;
 	t_life			life;
 	pthread_t		philo;
-	pthread_mutex_t	mutex;
 	struct s_philo	*next;
 }					t_philo;
 
@@ -68,8 +68,18 @@ t_philo				*birth_of_philosophers(int ac, char **data);
 t_life				destinte_of_philo(int ac, char **str);
 void				free_philo(t_philo *philo);
 
-// function de confuguration 
-int	lancement_simulation(t_table *table);
-void	*routine_philo(void *table);
+// function time
+
+void				storie_philo(long int time, int philosophical, char *etat);
+long				rest_time(long int rest_time);
+
+// function de confuguration
+int					lancement_simulation(t_table *table);
+void				*routine_philo(void *table);
+void				storie_philo(long int time, int philosophical, char *etat);
+long int			get_time(void);
+
+void				my_create_thread(t_philo *philo, void *(*f)(void *));
+void				*test_function(void *philo);
 
 #endif

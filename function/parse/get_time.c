@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:34:04 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 15:23:13 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/31 16:11:33 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@
  *
  */
 
+long int  get_time(void)
+{
+	struct timeval timeout;
+
+	if (gettimeofday(&timeout, NULL) == -1)
+		return (-1);
+	return (timeout.tv_sec * 1000 + timeout.tv_usec / 1000);
+}
+
 long	rest_time(long int rest_time)
 {
 	long int		margine;
@@ -32,7 +41,7 @@ long	rest_time(long int rest_time)
 	margine = 8;
 	if (gettimeofday(&start, NULL) == -1)
 		return (-1);
-	usleep(rest_time * 1000);
+	usleep(rest_time);
 	if (gettimeofday(&end, NULL) == -1)
 		return (-1);
 	elapsed = (end.tv_sec - start.tv_sec) * 1000 + (end.tv_usec - start.tv_usec)
@@ -50,9 +59,9 @@ t_life	destinte_of_philo(int ac, char **str)
 	t_life	life;
 
 	life.eat_count = 0;
-	life.time_to_die = atoli(str[2]);
-	life.time_to_eat = atoli(str[3]);
-	life.time_to_sleep = atoli(str[4]);
+	life.time_to_die = atoli(str[2]) * 1e3;
+	life.time_to_eat = atoli(str[3]) * 1e3;
+	life.time_to_sleep = atoli(str[4]) * 1e3;
 	if (ac == 6)
 		life.eat_count = atoli(str[5]);
 	return (life);

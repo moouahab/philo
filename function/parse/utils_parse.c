@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:10:46 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 09:28:56 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/03/31 19:42:48 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,33 @@ la destin du philospher :\n\n\
 			life->time_to_die,
 			life->time_to_eat,
 			life->time_to_sleep);
-    if (life->eat_count != 0)
-        printf("\n----------------------------------------\n\
+	if (life->eat_count != 0)
+		printf("\n----------------------------------------\n\
 -   combien repas doit-il manger :\n\n\
 \033[30m-   number_of_times_each_philosopher_must_eat =\033[0m %d\n\
------------------------------------------\n\n", life->eat_count);
+-----------------------------------------\n\n",
+				life->eat_count);
 }
 
-void	print_philo(t_philo *philo)
+void	print_philo(t_philo *data)
 {
+	t_philo *philo;
+
+	philo = data;
 	while (philo)
 	{
 		printf("\n----------------------------------------\n\
 \033[32m-  je suis le philosopher numero\033[0m %d\n\
------------------------------------------\n\n", philo->id);
+-----------------------------------------\n\n",
+				philo->id);
+		printf("\n----------------------------------------\n\
+\033[35m-  je la fouchette de droite numero\033[0m %d\n\
+-----------------------------------------\n\n",
+				philo->forks_r.id);
+		printf("\n----------------------------------------\n\
+\033[34m-  je la fouchette de gauche numero\033[0m %d\n\
+-----------------------------------------\n\n",
+				philo->forks_l.id);
 		philo = philo->next;
 	}
 }

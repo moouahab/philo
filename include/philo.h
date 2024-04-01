@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 20:34:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/31 22:56:05 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:29:01 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <string.h>
 # include <sys/time.h>
 # include <unistd.h>
+
+typedef enum e_code_time
+{
+	SECONDS,
+	MICROSECOND,
+	MILLISECOND,
+}					t_code_time;
 
 typedef struct s_life
 {
@@ -52,6 +59,9 @@ typedef struct s_philo
 typedef struct s_table
 {
 	int				place;
+	long int		beginning;
+	long int		end;
+	t_code_time		time;
 	t_philo			*head;
 }					t_table;
 
@@ -77,9 +87,12 @@ long				rest_time(long int rest_time);
 int					lancement_simulation(t_table *table);
 void				*routine_philo(void *table);
 void				storie_philo(long int time, int philosophical, char *etat);
-long int			get_time(void);
 
-void				my_create_thread(t_philo *philo, void *(*f)(void *));
+long int			get_time(t_code_time code_time);
+bool				simulation_finished(t_table *table);
+void				precise_usleep(long usec, t_table *table);
+
+bool				my_create_thread(t_philo *philo, void *(*f)(void *));
 void				*test_function(void *philo);
 
 #endif

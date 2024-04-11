@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_int.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:28:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/04/01 13:01:02 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/09 00:15:55 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,9 @@ int	parsin_philo(int ac, char const *av[], t_table *table)
 			return (false);
 		else
 		{
+			printf("initialisation des donne de philo...\n");
 			table->place = atoli(av[1]);
-			table->beginning = get_time(MILLISECOND);
-			table->head = birth_of_philosophers(ac, (char **)av);
-			if (table->head == NULL)
-				return (false);
+			table->head = birth_of_philosophers(ac, (char	**)av);
 		}
 	}
 	else

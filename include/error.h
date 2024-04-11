@@ -6,7 +6,7 @@
 /*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:41:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/03/30 12:54:40 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/09 12:44:36 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+void	*msg_time(char 	*str);
 void	*msg_mutex2(char 	*str);
 void	*msg_allocation(char *str);
 bool	msg_not_args_valide(unsigned int n);

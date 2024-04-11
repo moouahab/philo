@@ -6,16 +6,17 @@
 #    By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 17:44:09 by moouahab          #+#    #+#              #
-#    Updated: 2024/03/30 15:55:25 by moouahab         ###   ########.fr        #
+#    Updated: 2024/04/08 23:54:29 by moouahab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Cyberpunk Makefile
 
 # Source files
-SRCS = srcs/main.c function/error/msg_error.c function/parse/check_int.c function/parse/utils_parse.c
+SRCS = srcs/main.c function/error/msg_error.c function/parse/parsing.c function/parse/utils_parse.c
 SRCS += function/parse/get_time.c function/parse/birth_of_philosopher.c function/error/msg_thread.c
-SRCS += function/config/*.c
+SRCS += function/config/threads.c function/config/routing.c function/config/simulation.c 
+
 
 # Object files
 OBJS = ${SRCS:%.c=objs/%.o}

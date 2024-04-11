@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:10:46 by moouahab          #+#    #+#             */
-/*   Updated: 2024/04/11 00:25:22 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:04:19 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,14 @@ la destin du philospher :\n\n\
 \033[32m-   time_to_eat =\033[0m %ld ms\n\
 \033[35m-   time_to_sleep =\033[0m %ld ms\n\
 -----------------------------------------\n\n",
-			life->time_to_die,
-			life->time_to_eat,
-			life->time_to_sleep);
+		life->time_to_die, life->time_to_eat,
+		life->time_to_sleep);
 	if (life->nbr_meals != 0)
 		printf("\n----------------------------------------\n\
 -   combien repas doit-il manger :\n\n\
 \033[30m-   number_of_times_each_philosopher_must_eat =\033[0m %d\n\
 -----------------------------------------\n\n",
-				life->nbr_meals);
+			life->nbr_meals);
 }
 
 void	print_philo(t_philo *data)
@@ -64,17 +63,18 @@ void	print_philo(t_philo *data)
 		printf("\n----------------------------------------\n\
 \033[32m-  je suis le philosopher numero\033[0m %d\n\
 -----------------------------------------\n\n",
-				philo->id);
+			philo->id);
 		printf("\n----------------------------------------\n\
 \033[35m-  je suis la fouchette de droite numero\033[0m %d\n\
 \033[33m-  je suis la fouchette de droite adress\033[0m %p\n\
 -----------------------------------------\n\n",
-				philo->forks_r.id, &philo->forks_r.fork_mutex);
+			philo->forks_r.id, &philo->forks_r.fork_mutex);
 		printf("\n----------------------------------------\n\
 \033[34m-  je suis la fouchette de gauche numero\033[0m %d\n\
 \033[33m-  je suis la fouchette de gauche adress\033[0m %p\n\
 -----------------------------------------\n\n",
-				philo->forks_l.id, philo->forks_l.fork_ptr);
+			philo->forks_l.id,
+			philo->forks_l.fork_ptr);
 		philo = philo->next;
 	}
 }
@@ -88,7 +88,9 @@ void	print_philo(t_philo *data)
 int	safe_data_access(pthread_mutex_t *mutex, void *data, size_t size,
 		int write_operation)
 {
-	int lock_status, unlock_status;
+	int	lock_status;
+	int	unlock_status;
+
 	lock_status = pthread_mutex_lock(mutex);
 	if (lock_status != 0)
 		return (msg_mutex("lock_status failed"));

@@ -3,43 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   msg_thread.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 11:06:42 by moouahab          #+#    #+#             */
-/*   Updated: 2024/04/09 12:43:54 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:39:39 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	msg_thread(char 	*str)
+bool	msg_thread(char *str)
 {
 	printf("\n----------------------------------------------\n\
  -  \033[36'%s' Error de theards\033[0m\n\
 ----------------------------------------------\n\n", str);
-    return (false);
+	return (false);
 }
 
-bool	msg_mutex(char 	*str)
+bool	msg_mutex(char *str)
 {
 	printf("\n----------------------------------------------\n\
  -  \033[36'%s' Error de mutex\033[0m\n\
 ----------------------------------------------\n\n", str);
-    return (false);
+	return (false);
 }
 
-void	*msg_mutex2(char 	*str)
+void	*msg_mutex2(char *str)
 {
 	printf("\n----------------------------------------------\n\
  -  \033[36'%s' Error de mutex\033[0m\n\
 ----------------------------------------------\n\n", str);
-    return (NULL);
+	return (NULL);
 }
 
-void	*msg_time(char 	*str)
+void	*msg_time(char *str)
 {
 	printf("\n----------------------------------------------\n\
  -  \033[36'%s'\033[0m\n\
 ----------------------------------------------\n\n", str);
-    return (NULL);
+	return (NULL);
 }

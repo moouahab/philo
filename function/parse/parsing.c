@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:28:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/04/09 00:15:55 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:01:05 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	parsin_philo(int ac, char const *av[], t_table *table)
 		{
 			printf("initialisation des donne de philo...\n");
 			table->place = atoli(av[1]);
-			table->head = birth_of_philosophers(ac, (char	**)av);
+			table->head = birth_of_philosophers(ac, (char **)av);
 		}
 	}
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:34:04 by moouahab          #+#    #+#             */
-/*   Updated: 2024/04/11 03:02:56 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:00:51 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,14 @@ t_life	destinte_of_philo(int ac, char **str)
 
 	current_time = get_time(MILLISECOND);
 	if (current_time < 0)
-		return *(t_life *)msg_time("current_time is negative");
+		return (*(t_life *)msg_time("current_time is negative"));
 	life.meals_eaten = 0;
 	life.last_meal_time = 0;
 	life.current_time = 0;
 	life.beginning = current_time;
-	
 	life.time_to_die = atoli(str[2]) * 1e3;
 	life.time_to_eat = atoli(str[3]) * 1e3;
 	life.time_to_sleep = atoli(str[4]) * 1e3;
-	
 	if (ac == 6)
 		life.nbr_meals = atoli(str[5]);
 	return (life);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
+/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 20:34:01 by moouahab          #+#    #+#             */
-/*   Updated: 2024/04/11 00:22:34 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:05:24 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,15 @@ typedef struct s_life
 {
 	t_code_time			time;
 	int					nbr_meals;
-	int					meals_eaten;     	// Nombre de repas que le philosophe a déjà mangés
-	long int			last_meal_time; 	// Timestamp du dernier repas en millisecondes
-    
-	long int			current_time;		// Temps actuel (devrait être mis à jour régulièrement)
+	int					meals_eaten;
+	long int			last_meal_time;
+	long int			current_time;
 	long int			beginning;
-	
 	long int			time_to_die;
 	long int			time_to_eat;
 	long int			time_to_thinking;
 	long int			time_to_sleep;
-	long int			last_sleep_time;	// Timestamp du dernier sommeil en millisecondes
+	long int			last_sleep_time;
 }						t_life;
 
 typedef struct s_fork

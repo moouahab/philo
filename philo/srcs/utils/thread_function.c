@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread_function.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:25:14 by moouahab          #+#    #+#             */
-/*   Updated: 2024/06/12 17:18:31 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:45:23 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	eat_meals(t_philo **philo, t_data **data)
 	if (check_deadlock(data))
 		return ;
 	security_print(data, "is eating", (*philo)->id);
-	ms_usplee(data , (*data)->time_to_eat * 1e3);
+	security_usleep(*data , (*data)->time_to_eat * 1e3);
 	pthread_mutex_lock(&(*data)->deadlock);
 	(*philo)->last_meals = get_time(&(*data)->time_start);
 	(*philo)->nbr_meals++;

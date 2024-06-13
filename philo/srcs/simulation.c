@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 22:13:04 by moouahab          #+#    #+#             */
-/*   Updated: 2024/06/12 17:28:11 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:43:33 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,38 @@ void	*routine_one(void *arg)
 	return (arg);
 }
 
-void	ms_usplee(t_data	**data, size_t sleep_time)
+void	security_usleep(t_data *data, t_longi sleep_time)
 {
-	while (sleep_time)
+	t_longi	interval;
+	t_longi	slept_time;
+
+	interval = 100;
+	slept_time = 0;
+	while (slept_time < sleep_time * 0.5)
 	{
-		if (security_data(data, GET))
+		usleep(interval);
+		slept_time += interval;
+		pthread_mutex_lock(&data->deadlock);
+		if (data->dead_thread)
+		{
+			pthread_mutex_unlock(&data->deadlock);
 			break ;
-		usleep(30);
+		}
+		pthread_mutex_unlock(&data->deadlock);
 	}
 }
-
 
 bool	monitor_time(t_philo *philo, t_longi current_time)
 {
 	bool	result;
 
-	if (current_time - philo->last_meals >= philo->data->time_to_die)
+	if (philo->data->philo->nbr_meals == philo->data->nbr_of_meals
+		&& philo->data->philo->nbr_meals != -1)
+		result = true;
+	else if (current_time - philo->last_meals >= philo->data->time_to_die)
 	{
 		result = true;
-		security_print(&philo->data, "\033[31mdied\033[0m", philo->id);
+		security_print(&philo->data, "\033[31mdied 1 \033[0m", philo->id);
 	}
 	else
 		result = false;
@@ -62,7 +75,7 @@ void	*philo_routine(void *arg)
 		if (security_data(&data, GET))
 			break ;
 		security_print(&data, "is sleeping", philo->id);
-		ms_usplee(&data, data->time_to_sleep * 1000);
+		security_usleep(data, data->time_to_sleep * 1000);
 		if (security_data(&data, GET))
 			break ;
 		security_print(&data, "is thinking", philo->id);

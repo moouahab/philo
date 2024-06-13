@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   security_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 18:52:02 by moouahab          #+#    #+#             */
-/*   Updated: 2024/06/12 17:29:12 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:44:42 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool	security_gett_meals(t_data **data)
 	if (pthread_mutex_lock(&(*data)->deadlock) != 0)
 		return (ft_putstr_fd("\033[31mError : mutex_lock", STDERR_FILENO));
 	if ((*data)->philo->nbr_meals == (*data)->nbr_of_meals
-		&& (*data)->nbr_of_meals != -1)
+		&& (*data)->nbr_of_meals > -1)
 	{
 		if (pthread_mutex_unlock(&(*data)->deadlock) != 0)
 			return (ft_putstr_fd("\033[31mError : mutex_unlock",

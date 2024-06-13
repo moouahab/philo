@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 20:59:53 by moouahab          #+#    #+#             */
-/*   Updated: 2024/06/12 17:16:59 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/06/13 11:54:22 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ struct					s_data
 
 // init des data
 void					check_thread_dead(t_philo **philo);
-void					ms_usplee(t_data **data, size_t sleep_time);
+void					security_usleep(t_data *data, t_longi sleep_time);
 void					get_thread(t_philo **philo);
 void					lock_forks_odd(t_philo **philo, t_data **data);
 void					lock_forks_even(t_philo **philo, t_data **data);

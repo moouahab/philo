@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 20:20:11 by moouahab          #+#    #+#             */
-/*   Updated: 2024/06/12 14:39:18 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:33:19 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_atoi(char const *str)
 	res = 0;
 	sign = 1;
 	if (!ft_checkoverflow(str))
-		return (-1);
+		return (-2);
 	while ((*str > 8 && *str < 14) || *str == 32)
 		str++;
 	if (*str == '+' || *str == '-')

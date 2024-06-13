@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moouahab <moouahab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moouahab <mohamed.ouahab1999@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 21:50:45 by moouahab          #+#    #+#             */
-/*   Updated: 2024/06/12 14:42:33 by moouahab         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:32:51 by moouahab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	data_init(t_data **data, char **av, int ac)
 		|| (*data)->time_to_sleep < 60)
 		return ;
 	if (ac == 6)
+	{
 		(*data)->nbr_of_meals = ft_atoi(av[5]);
+	}
 	else
 		(*data)->nbr_of_meals = -1;
 	init_mutex_rigth(data, (*data)->nb_philo);
